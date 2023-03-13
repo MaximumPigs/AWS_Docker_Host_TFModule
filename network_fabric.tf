@@ -2,7 +2,7 @@ resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/24"
 
   tags = {
-    "name" = "honeypot_vpc"
+    "name" = "vpc"
   }
 }
 
@@ -19,7 +19,7 @@ resource "aws_subnet" "subnet" {
   cidr_block = "10.0.0.0/24"
 
   tags = {
-    "name" = "honeypot_subnet"
+    "name" = "subnet"
   }
 }
 
@@ -32,12 +32,12 @@ resource "aws_default_route_table" "route" {
   }
 
   tags = {
-    name = "Honeypot Route"
+    name = "route"
   }
 }
 
 resource "aws_security_group" "security_group" {
-  name        = "honeypot_security_group"
+  name        = "security_group"
   description = "firewall rules for honeypot"
   vpc_id      = aws_vpc.vpc.id
 
